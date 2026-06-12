@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="FakeGuard",
     page_icon="🛡️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # ── Lazy-load predictor (cached so models load once) ───────────────────────────
@@ -241,6 +241,11 @@ textarea {
     border-radius: 12px!important;
     font-family: 'Inter', sans-serif!important;
     font-size: 0.95rem!important;
+
+    /* Better mobile usability: let textarea be resizable and not rely on Streamlit fixed height */
+    min-height: 220px !important;
+    max-height: 55vh !important;
+    resize: vertical !important;
 }
 textarea:focus { border-color: #58A6FF!important; }
 
@@ -299,6 +304,24 @@ textarea:focus { border-color: #58A6FF!important; }
    MOBILE RESPONSIVE (≤ 768px)
 ─────────────────────────────────────────*/
 @media screen and (max-width: 768px) {
+
+    /* Make textarea less tall on mobile */
+    textarea {
+        min-height: 170px !important;
+        max-height: 45vh !important;
+    }
+
+    /* Reduce vertical footprint of charts */
+    .js-plotly-plot {
+        height: 320px !important;
+        max-height: 320px !important;
+    }
+
+    /* Reduce some vertical spacing */
+    .kpi-row { margin-bottom: 1.2rem !important; }
+    .verdict-fake, .verdict-real { padding: 1.25rem 0.9rem !important; }
+    .hist-item { margin-bottom: 0.55rem !important; }
+
 
     /* Main container */
     .block-container {
@@ -592,26 +615,27 @@ with tab1:
     article_text = st.text_area(
         "News Article",
         placeholder="Paste the full news article here...\n\nExample: Scientists have discovered a new treatment for...",
-        height=260,
+        # Mobile responsiveness: use CSS-controlled min/max height instead of fixed height
+        height=None,
         label_visibility="collapsed"
     )
 
     word_count = len(article_text.split()) if article_text.strip() else 0
     char_count = len(article_text)
 
-    col_wc, col_cc, col_btn = st.columns([1, 1, 2])
+    col_wc, col_cc = st.columns(2)
     with col_wc:
         st.caption(f"Words: **{word_count}**")
     with col_cc:
         st.caption(f"Characters: **{char_count}**")
 
-    with col_btn:
-        analyze_clicked = st.button(
-            "🔍 Analyze Article",
-            use_container_width=True,
-            disabled=(word_count < 5),
-            type="primary"
-        )
+    # Put the button in its own row so mobile stacking is predictable
+    analyze_clicked = st.button(
+        "🔍 Analyze Article",
+        use_container_width=True,
+        disabled=(word_count < 5),
+        type="primary"
+    )
 
     if word_count > 0 and word_count < 5:
         st.warning("⚠️ Please enter at least 5 words for a reliable prediction.")
