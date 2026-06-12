@@ -10,7 +10,7 @@
 
 *Detect misinformation in news articles using NLP and classical ML — trained on 72,134 articles from 4 sources.*
 
-[![FakeGuard Demo](assets/image.png)](https://your-app.streamlit.app)
+[![FakeGuard Demo](assets/image.png)](https://fakeguard-abhik09.streamlit.app/)
 
 </div>
 
