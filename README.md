@@ -4,9 +4,9 @@
 
 ### AI-Powered Fake News Detection System
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app.streamlit.app)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3+-F7931E?style=flat&logo=scikit-learn&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.3+-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-deployed-red?style=for-the-badge&logo=streamlit&logoColor=white)
 
 *Detect misinformation in news articles using NLP and classical ML — trained on 72,134 articles from 4 sources.*
 
@@ -133,7 +133,7 @@ streamlit run app.py
 B.Tech Computer Science (AI/ML) · KIIT University
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-abhik--kundu.netlify.app-58A6FF?style=flat)](https://abhik-kundu.netlify.app)
-[![GitHub](https://img.shields.io/badge/GitHub-@YOUR__USERNAME-181717?style=flat&logo=github)](https://github.com/YOUR_USERNAME)
+[![GitHub](https://img.shields.io/badge/GitHub-@YOUR__USERNAME-181717?style=flat&logo=github)](https://github.com/abhik-kundu09)
 
 ---
 
