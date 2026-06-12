@@ -294,6 +294,188 @@ textarea:focus { border-color: #58A6FF!important; }
 .hist-fake { border-left: 3px solid #FF4B4B; }
 .hist-real { border-left: 3px solid #00CC88; }
 .hist-meta { color: #484F58; font-size: 0.78rem; margin-top: 0.3rem; }
+
+/* ─────────────────────────────────────────
+   MOBILE RESPONSIVE (≤ 768px)
+─────────────────────────────────────────*/
+@media screen and (max-width: 768px) {
+
+    /* Main container */
+    .block-container {
+        padding-top: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100% !important;
+    }
+
+    /* Header */
+    .fg-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem;
+        gap: 1rem;
+        min-height: auto;
+    }
+
+    .fg-header-left {
+        width: 100%;
+    }
+
+    .fg-title {
+        font-size: 2rem;
+        white-space: normal;
+        letter-spacing: 1.5px;
+    }
+
+    .fg-tagline {
+        white-space: normal;
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+
+    /* Header badges */
+    .fg-header-badges {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .fg-header-badge {
+        flex: 1 1 48%;
+        padding: 0.8rem;
+    }
+
+    .fg-badge-val {
+        font-size: 1.1rem;
+    }
+
+    /* KPI Cards */
+    .kpi-row {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .kpi-card {
+        flex: 1 1 calc(50% - 0.4rem);
+        min-width: 140px;
+        padding: 1rem;
+    }
+
+    .kpi-val {
+        font-size: 1.4rem;
+    }
+
+    .kpi-lbl {
+        font-size: 0.65rem;
+    }
+
+    /* Verdict cards */
+    .verdict-fake,
+    .verdict-real {
+        padding: 1.5rem 1rem;
+    }
+
+    .verdict-icon {
+        font-size: 2.2rem;
+    }
+
+    .verdict-label-fake,
+    .verdict-label-real {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    .verdict-conf {
+        font-size: 0.75rem;
+    }
+
+    /* History cards */
+    .hist-item {
+        padding: 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .hist-meta {
+        font-size: 0.72rem;
+        word-break: break-word;
+    }
+
+    /* Sidebar */
+    .model-perf-card {
+        font-size: 0.75rem;
+        line-height: 1.8;
+    }
+
+    /* Text area */
+    textarea {
+        font-size: 0.9rem !important;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        min-width: max-content;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* DataFrames */
+    .stDataFrame {
+        overflow-x: auto;
+    }
+
+    /* Plotly charts */
+    .js-plotly-plot {
+        width: 100% !important;
+    }
+
+    /* Metrics */
+    [data-testid="metric-container"] {
+        padding: 0.5rem;
+    }
+
+    /* Buttons */
+    .stButton > button {
+        width: 100%;
+        min-height: 44px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+
+    .fg-title {
+        font-size: 1.7rem;
+    }
+
+    .fg-shield {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4rem;
+    }
+
+    .fg-header-badge {
+        flex: 1 1 100%;
+    }
+
+    .kpi-card {
+        flex: 1 1 100%;
+    }
+
+    .verdict-label-fake,
+    .verdict-label-real {
+        font-size: 1.5rem;
+    }
+
+    .kpi-val {
+        font-size: 1.25rem;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -471,7 +653,7 @@ with tab1:
         st.markdown("---")
         st.markdown("### 🎯 Verdict")
 
-        res_col, detail_col = st.columns([1, 1])
+        res_col, detail_col = st.columns(2)
 
         with res_col:
             if label == "FAKE":
